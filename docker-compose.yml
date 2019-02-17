@@ -1,0 +1,46 @@
+version: '2'
+
+services:
+  nginx:
+    image: nginx
+    container_name: "laravel-nginx"
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/src
+      - ./nginx:/etc/nginx/conf.d
+
+  php:
+    build: ./php
+    container_name: "laravel-php"
+    volumes:
+      - ./src:/src
+    working_dir: /src
+
+  mysql:
+    image: mysql
+    container_name: "laravel-mysql"
+    restart: always
+    environment:
+      MYSQL_DATABASE: root
+      MYSQL_ROOT_PASSWORD: root
+    ports: 
+      - 13306:3306
+    volumes:
+      - ./mysql:/etc/mysql/conf.d
+
+  postgres:
+    restart: always
+    image: postgres:alpine
+    container_name: "laravel-postgres"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - 15432:5432
+
+  redis:
+    image: redis:alpine
+    container_name: "laravel-redis"
+    ports: 
+      - 16379:6379
