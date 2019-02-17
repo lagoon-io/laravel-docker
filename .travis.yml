@@ -1,3 +1,11 @@
+language: php
+
+php:
+  - 7.2
+
+services:
+  - docker
+
 env:
   - DOCKER_COMPOSE_VERSION: 1.8.0
 
@@ -7,3 +15,6 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
   - docker-compose up -d
+
+script:
+  - echo docker-compose only
