@@ -21,8 +21,9 @@ $ docker-compose ps
 
 ```
 # Laravelアプリ作成
-# ※ 前もって /src/public は削除しておく
-$ docker-compose exec php laravel new sample
+# ※ docker-compose up -d の後に実行
+#   前もって /src/public は削除しておく
+$ docker-compose exec php laravel new src
 ```
 
 ```
@@ -37,6 +38,19 @@ docker-compose exec php php artisan make:XXXX XXXXXXXX
 
 # PHPUnitの実行
 docker-compose exec php ./vendor/bin/phpunit --testdox
+```
+
+### DBコネクション設定
+
+```
+# /src/.env
+
+DB_CONNECTION=pgsql  # PostgreSQLの場合
+DB_HOST=postgres     # PostgreSQLの場合　dockerサービス名で指定
+DB_PORT=5432
+DB_DATABASE=<DB名>
+DB_USERNAME=root
+DB_PASSWORD=root
 ```
 
 Nginxの参照ファイル、ディレクトリ変更
