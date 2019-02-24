@@ -1,6 +1,6 @@
 # laravel-docker
 
-[![Build Status](https://travis-ci.org/Kento75/laravel-docker.svg?branch=master)](https://travis-ci.org/Kento75/laravel-docker)
+[![Build Status](https://travis-ci.org/lagoon-io/laravel-docker.svg?branch=master)](https://travis-ci.org/lagoon-io/laravel-docker)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
 ### クイックセットアップ
