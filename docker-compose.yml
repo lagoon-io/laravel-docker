@@ -46,3 +46,6 @@ services:
     container_name: "laravel-redis"
     ports: 
       - 16379:6379
+    volumes:
+      - ./redis:/data
+    command: redis-server --appendonly yes
