@@ -24,8 +24,9 @@ RUN composer global require "laravel/installer"
 
 # PHP's DB setting
 RUN apt-get update \
-    && apt-get install -y libpq-dev \
-    && docker-php-ext-install pdo_mysql pdo_pgsql
+    && apt-get install -y libpq-dev libfreetype6-dev libjpeg62-turbo-dev libpng-dev libjpeg-dev
+RUN docker-php-ext-configure gd --with-png-dir=/usr/include --with-jpeg-dir=/usr/include
+RUN docker-php-ext-install gd pdo_mysql pdo_pgsql
 
 # Install Node.js
 RUN apt-get install -y gnupg
