@@ -23,7 +23,7 @@ $ docker-compose ps
 # Laravelアプリ作成
 # ※ docker-compose up -d の後に実行
 #   前もって /src/public は削除しておく
-$ docker-compose exec php laravel new src
+$ docker-compose exec php laravel new .
 ```
 
 ```
